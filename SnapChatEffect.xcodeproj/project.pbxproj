@@ -11,9 +11,6 @@
 		7B3029EA27211CEA00892CC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3029E927211CEA00892CC2 /* ContentView.swift */; };
 		7B3029EC27211CEC00892CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B3029EB27211CEC00892CC2 /* Assets.xcassets */; };
 		7B3029EF27211CEC00892CC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B3029EE27211CEC00892CC2 /* Preview Assets.xcassets */; };
-		7B3029F6272124D500892CC2 /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3029F5272124D500892CC2 /* ImagesView.swift */; };
-		7B3029F82721449200892CC2 /* HaloweenImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3029F72721449200892CC2 /* HaloweenImage.swift */; };
-		7B3029FA2721462500892CC2 /* MockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3029F92721462500892CC2 /* MockStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +19,6 @@
 		7B3029E927211CEA00892CC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B3029EB27211CEC00892CC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B3029EE27211CEC00892CC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7B3029F5272124D500892CC2 /* ImagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
-		7B3029F72721449200892CC2 /* HaloweenImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HaloweenImage.swift; sourceTree = "<group>"; };
-		7B3029F92721462500892CC2 /* MockStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +53,6 @@
 			children = (
 				7B3029E727211CEA00892CC2 /* SnapChatEffectApp.swift */,
 				7B3029E927211CEA00892CC2 /* ContentView.swift */,
-				7B3029F72721449200892CC2 /* HaloweenImage.swift */,
-				7B3029F5272124D500892CC2 /* ImagesView.swift */,
-				7B3029F92721462500892CC2 /* MockStore.swift */,
 				7B3029EB27211CEC00892CC2 /* Assets.xcassets */,
 				7B3029ED27211CEC00892CC2 /* Preview Content */,
 			);
@@ -146,11 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B3029F82721449200892CC2 /* HaloweenImage.swift in Sources */,
 				7B3029EA27211CEA00892CC2 /* ContentView.swift in Sources */,
 				7B3029E827211CEA00892CC2 /* SnapChatEffectApp.swift in Sources */,
-				7B3029F6272124D500892CC2 /* ImagesView.swift in Sources */,
-				7B3029FA2721462500892CC2 /* MockStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
