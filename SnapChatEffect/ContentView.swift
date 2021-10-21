@@ -21,10 +21,23 @@ struct ContentView: View {
     
     // MARK: - Fixed height
     let height: CGFloat = 150
+    var imagesHaloween: [String] {
+        var imageNames = [String]()
+        for i in 1..<7 {
+            imageNames.append("haloween-\(i)")
+        }
+        return imageNames
+    }
     
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ForEach(imagesHaloween, id: \.self) { image in
+                Image(image)
+                    .resizable()
+                    .frame(width: 60)
+                    .padding()
+            }
+        }
     }
 }
 
