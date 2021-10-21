@@ -13,7 +13,7 @@ struct ContentView: View {
     
     // MARK: - Numbers of items in row
 
-    var column: [GridItem] = [
+    var columns: [GridItem] = [
         GridItem(.flexible(minimum: 140)),
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -23,20 +23,24 @@ struct ContentView: View {
     let height: CGFloat = 150
     var imagesHaloween: [String] {
         var imageNames = [String]()
-        for i in 1..<7 {
+        for i in 1..<8 {
             imageNames.append("haloween-\(i)")
         }
         return imageNames
     }
     
     var body: some View {
-        VStack {
-            ForEach(imagesHaloween, id: \.self) { image in
-                Image(image)
-                    .resizable()
-                    .frame(width: 60)
-                    .padding()
+        
+        ScrollView {
+            LazyVGrid(columns: columns, spacing: 16) {
+                ForEach(imagesHaloween, id: \.self) { image in
+                    Image(image)
+                        .resizable()
+                        .frame(height: height)
+                        .clipShape(RoundedRectangle(cornerRadius: 20))
+                }
             }
+            .padding()
         }
     }
 }
