@@ -31,22 +31,27 @@ struct ContentView: View {
     
     var body: some View {
         
-        NavigationView {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [.black, .orange]), startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea(edges: .bottom)
-
-                ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(imagesHaloween, id: \.self) { image in
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [.black, .orange]), startPoint: .topTrailing, endPoint: .bottom)
+                .ignoresSafeArea(.all)
+            
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 16) {
+                    ForEach(imagesHaloween, id: \.self) { image in
+                        
+                        Button{ print("\(image) was tapped")} label: {
                             Image(image)
                                 .resizable()
                                 .frame(height: height)
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
+                                
                         }
                     }
-                    .padding()
                 }
+                .padding(.top, 50)
+                .padding()
+                
+                
             }
         }
     }
