@@ -12,7 +12,7 @@ struct ContentView: View {
     @Namespace private var namespace
     
     // MARK: - Numbers of items in row
-
+    
     var columns: [GridItem] = [
         GridItem(.flexible(minimum: 140)),
         GridItem(.flexible()),
@@ -31,16 +31,23 @@ struct ContentView: View {
     
     var body: some View {
         
-        ScrollView {
-            LazyVGrid(columns: columns, spacing: 16) {
-                ForEach(imagesHaloween, id: \.self) { image in
-                    Image(image)
-                        .resizable()
-                        .frame(height: height)
-                        .clipShape(RoundedRectangle(cornerRadius: 20))
+        NavigationView {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.black, .orange]), startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea(edges: .bottom)
+
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(imagesHaloween, id: \.self) { image in
+                            Image(image)
+                                .resizable()
+                                .frame(height: height)
+                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                        }
+                    }
+                    .padding()
                 }
             }
-            .padding()
         }
     }
 }
