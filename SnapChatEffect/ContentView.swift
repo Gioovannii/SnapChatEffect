@@ -45,7 +45,7 @@ struct ContentView: View {
                                 .scaledToFit()
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
                                 .onTapGesture {
-                                    withAnimation(.default) {
+                                    withAnimation(.easeIn) {
                                         isShown.toggle()
                                         imageName = image
                                     }
@@ -61,17 +61,21 @@ struct ContentView: View {
             } else {
                 
                 ZStack {
-                    GeometryReader { geo in
-                        VStack(alignment: .center) {
+                    
+                    VStack(alignment: .center) {
+                        GeometryReader { geo in
                             Image(imageName)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
                                 .matchedGeometryEffect(id: "image", in: namespace)
-                                .scaledToFit()
-                                .frame(height: geo.size.height)
+                                .frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
+                                .animation(.easeInOut)
                         }
                     }
+                    .edgesIgnoringSafeArea(.all)
                 }
                 .onTapGesture {
-                    withAnimation(.default) {
+                    withAnimation(.easeInOut) {
                         isShown.toggle()
                     }
                 }
