@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State private var isShown = false
     @Namespace private var namespace
-    
+    @State var imageName: String
     // MARK: - Numbers of items in row
     
     var columns: [GridItem] = [
@@ -35,23 +35,41 @@ struct ContentView: View {
             LinearGradient(gradient: Gradient(colors: [.black, .orange]), startPoint: .topTrailing, endPoint: .bottom)
                 .ignoresSafeArea(.all)
             
-            ScrollView {
-                LazyVGrid(columns: columns, spacing: 16) {
-                    ForEach(imagesHaloween, id: \.self) { image in
-                        
-                        Button{ print("\(image) was tapped")} label: {
+            if !isShown {
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 16) {
+                        ForEach(imagesHaloween, id: \.self) { image in
                             Image(image)
                                 .resizable()
                                 .frame(height: height)
+                                .scaledToFit()
                                 .clipShape(RoundedRectangle(cornerRadius: 20))
-                                
+                                .onTapGesture {
+                                    withAnimation(.default) {
+                                        isShown.toggle()
+                                        imageName = image
+                                    }
+                                }
                         }
                     }
                 }
                 .padding(.top, 50)
                 .padding()
                 
-                
+            } else {
+                GeometryReader { geo in
+                    VStack(alignment: .center) {
+                            Image(imageName)
+                                .matchedGeometryEffect(id: "image", in: namespace)
+                                .scaledToFit()
+                                .frame(height: geo.size.height)
+                    }
+                }
+            }
+        }
+        .onTapGesture {
+            withAnimation(.default) {
+                isShown.toggle()
             }
         }
     }
@@ -59,6 +77,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(imageName: "haloween-1")
     }
 }
