@@ -56,20 +56,25 @@ struct ContentView: View {
                 .padding(.top, 50)
                 .padding()
                 
+                
+                
             } else {
-                GeometryReader { geo in
-                    VStack(alignment: .center) {
+                
+                ZStack {
+                    GeometryReader { geo in
+                        VStack(alignment: .center) {
                             Image(imageName)
                                 .matchedGeometryEffect(id: "image", in: namespace)
                                 .scaledToFit()
                                 .frame(height: geo.size.height)
+                        }
                     }
                 }
-            }
-        }
-        .onTapGesture {
-            withAnimation(.default) {
-                isShown.toggle()
+                .onTapGesture {
+                    withAnimation(.default) {
+                        isShown.toggle()
+                    }
+                }
             }
         }
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SnapChatEffectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(imageName: "haloween-1")
         }
     }
 }
