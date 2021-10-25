@@ -10,17 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @State private var isShown = false
     @Namespace private var namespace
-    @State var imageName: String
-    // MARK: - Numbers of items in row
+    @State private var tempImages = [String]()
     
+    // MARK: - Numbers of items in row
     var columns: [GridItem] = [
         GridItem(.flexible(minimum: 140)),
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     
-    // MARK: - Fixed height
-    let height: CGFloat = 150
+    // MARK: - Computed property for images
     var imagesHaloween: [String] {
         var imageNames = [String]()
         for i in 1..<8 {
@@ -39,15 +38,13 @@ struct ContentView: View {
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 16) {
                         ForEach(imagesHaloween, id: \.self) { image in
-                            Image(image)
-                                .resizable()
-                                .frame(height: height)
-                                .scaledToFit()
-                                .clipShape(RoundedRectangle(cornerRadius: 20))
+                            DetailView(image: image)
                                 .onTapGesture {
                                     withAnimation(.easeIn) {
                                         isShown.toggle()
-                                        imageName = image
+                                        tempImages.append(contentsOf: imagesHaloween)
+                                        tempImages.insert(image, at: 0)
+                                        print(tempImages)
                                     }
                                 }
                         }
@@ -56,23 +53,25 @@ struct ContentView: View {
                 .padding(.top, 50)
                 .padding()
                 
-                
-                
             } else {
                 
                 ZStack {
                     
-                    VStack(alignment: .center) {
-                        GeometryReader { geo in
-                            Image(imageName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .matchedGeometryEffect(id: "image", in: namespace)
-                                .frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
-                                .animation(.easeInOut)
+                    GeometryReader { geo in
+                        ScrollView {
+                            VStack(spacing: geo.size.height / 1.4) {
+                                ForEach(tempImages, id: \.self) { image in
+                                    Image(image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: geo.size.width, height: geo.size.height)
+                                        
+                                }
+                                
+                            }
                         }
+                        .edgesIgnoringSafeArea(.all)
                     }
-                    .edgesIgnoringSafeArea(.all)
                 }
                 .onTapGesture {
                     withAnimation(.easeInOut) {
@@ -86,6 +85,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(imageName: "haloween-1")
+        ContentView()
     }
 }

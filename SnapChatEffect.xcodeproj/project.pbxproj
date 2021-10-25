@@ -11,6 +11,7 @@
 		7B3029EA27211CEA00892CC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3029E927211CEA00892CC2 /* ContentView.swift */; };
 		7B3029EC27211CEC00892CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B3029EB27211CEC00892CC2 /* Assets.xcassets */; };
 		7B3029EF27211CEC00892CC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B3029EE27211CEC00892CC2 /* Preview Assets.xcassets */; };
+		7B7144E627244A4800605F29 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7144E527244A4800605F29 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		7B3029E927211CEA00892CC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7B3029EB27211CEC00892CC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B3029EE27211CEC00892CC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7B7144E527244A4800605F29 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				7B3029E727211CEA00892CC2 /* SnapChatEffectApp.swift */,
 				7B3029E927211CEA00892CC2 /* ContentView.swift */,
+				7B7144E527244A4800605F29 /* DetailView.swift */,
 				7B3029EB27211CEC00892CC2 /* Assets.xcassets */,
 				7B3029ED27211CEC00892CC2 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B3029EA27211CEA00892CC2 /* ContentView.swift in Sources */,
+				7B7144E627244A4800605F29 /* DetailView.swift in Sources */,
 				7B3029E827211CEA00892CC2 /* SnapChatEffectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
