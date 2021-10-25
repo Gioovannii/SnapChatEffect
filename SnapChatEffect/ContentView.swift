@@ -59,7 +59,7 @@ struct ContentView: View {
                     
                     GeometryReader { geo in
                         ScrollView {
-                            VStack(spacing: geo.size.height / 1.4) {
+                            VStack(spacing: geo.size.height / 0.05) {
                                 ForEach(tempImages, id: \.self) { image in
                                     Image(image)
                                         .resizable()
