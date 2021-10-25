@@ -29,7 +29,6 @@ struct ContentView: View {
     }
     
     var body: some View {
-        
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.black, .orange]), startPoint: .topTrailing, endPoint: .bottom)
                 .ignoresSafeArea(.all)
@@ -59,13 +58,14 @@ struct ContentView: View {
                     
                     GeometryReader { geo in
                         ScrollView {
-                            VStack(spacing: geo.size.height / 0.05) {
+                            VStack {
                                 ForEach(tempImages, id: \.self) { image in
                                     Image(image)
                                         .resizable()
-                                        .scaledToFill()
-                                        .frame(width: geo.size.width, height: geo.size.height)
+                                        .frame(width: geo.size.width, height: (geo.size.height + 82))
+                                        .scaledToFit()
                                         
+                                    
                                 }
                                 
                             }
