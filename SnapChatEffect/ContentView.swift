@@ -49,6 +49,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .matchedGeometryEffect(id: "shape", in: namespace)
                 .padding(.top, 50)
                 .padding()
                 
@@ -69,7 +70,9 @@ struct ContentView: View {
                                 }
                                 
                             }
+                            
                         }
+                        .matchedGeometryEffect(id: "shape", in: namespace)
                         .edgesIgnoringSafeArea(.all)
                     }
                 }
