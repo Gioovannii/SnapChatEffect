@@ -8,21 +8,13 @@
 import SwiftUI
 
 struct DetailView: View {
-    let height: CGFloat = 150
+    let size: CGFloat = 120
     let image: String
-    
-    var imagesHaloween: [String] {
-        var imageNames = [String]()
-        for i in 1..<8 {
-            imageNames.append("haloween-\(i)")
-        }
-        return imageNames
-    }
     
     var body: some View {
         Image(image)
             .resizable()
-            .frame(height: height)
+            .frame(width: size, height: size)
             .scaledToFit()
             .clipShape(RoundedRectangle(cornerRadius: 20))
     }
