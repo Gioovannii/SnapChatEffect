@@ -61,27 +61,23 @@ struct ContentView: View {
                                     ForEach(tempImages, id: \.self) { image in
                                         Image(image)
                                             .resizable()
-                                            .frame(width: geo.size.width, height: geo.size.height)
-                                            .aspectRatio(1.2, contentMode: .fill)
+                                            .aspectRatio(0.78 ,contentMode: .fill)
+                                            .frame(width: getRect().size.width, height: getRect().size.height)
                                             .cornerRadius(1)
                                             
-                                        
-//                                            .frame(width: geo.size.width, height: geo.size.height)
-//                                            .aspectRatio(1.2, contentMode: .fill)
-//                                            .rotationEffect(.degrees(-90))
-//                                            .frame(width: geo.size.width, height: geo.size.height)
+                                            .frame(width: geo.size.width, height: geo.size.height)
+                                            .rotationEffect(.degrees(-90))
+                                            .frame(width: geo.size.height, height: geo.size.width)
                                     }
-                                    .ignoresSafeArea(.all)
-                                    .edgesIgnoringSafeArea(.all)
                                 }
-                                
                             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
-//                            .rotationEffect(.degrees(90))
                             .matchedGeometryEffect(id: "shape", in: namespace)
-                            .frame(width: geo.size.width, height: geo.size.height)
+                            .rotationEffect(.degrees(90))
+                            .frame(width: geo.size.width)
                             
                         }
                 }
+                .ignoresSafeArea()
                 .onTapGesture {
                     withAnimation(.default) {
                         isShown.toggle()
@@ -89,6 +85,10 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    func getRect() -> CGRect {
+        return UIScreen.main.bounds
     }
 }
 
