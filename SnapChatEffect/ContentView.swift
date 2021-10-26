@@ -35,9 +35,10 @@ struct ContentView: View {
             
             if !isShown {
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 16) {
+                    LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(imagesHaloween, id: \.self) { image in
                             DetailView(image: image)
+                            
                                 .onTapGesture {
                                     withAnimation(.easeIn) {
                                         isShown.toggle()
@@ -51,33 +52,38 @@ struct ContentView: View {
                 }
                 .matchedGeometryEffect(id: "shape", in: namespace)
                 .padding(.top, 50)
-                .padding()
                 
             } else {
                 
                 ZStack {
-                    
-                    GeometryReader { geo in
-                        ScrollView {
-                            VStack {
-                                ForEach(tempImages, id: \.self) { image in
-                                    Image(image)
-                                        .resizable()
-                                        .frame(width: geo.size.width, height: (geo.size.height + 82))
-                                        .scaledToFit()
+                        GeometryReader { geo in
+                                TabView {
+                                    ForEach(tempImages, id: \.self) { image in
+                                        Image(image)
+                                            .resizable()
+                                            .frame(width: geo.size.width, height: geo.size.height)
+                                            .aspectRatio(1.2, contentMode: .fill)
+                                            .cornerRadius(1)
+                                            
                                         
-                                    
+//                                            .frame(width: geo.size.width, height: geo.size.height)
+//                                            .aspectRatio(1.2, contentMode: .fill)
+//                                            .rotationEffect(.degrees(-90))
+//                                            .frame(width: geo.size.width, height: geo.size.height)
+                                    }
+                                    .ignoresSafeArea(.all)
+                                    .edgesIgnoringSafeArea(.all)
                                 }
                                 
-                            }
+                            .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+//                            .rotationEffect(.degrees(90))
+                            .matchedGeometryEffect(id: "shape", in: namespace)
+                            .frame(width: geo.size.width, height: geo.size.height)
                             
                         }
-                        .matchedGeometryEffect(id: "shape", in: namespace)
-                        .edgesIgnoringSafeArea(.all)
-                    }
                 }
                 .onTapGesture {
-                    withAnimation(.easeInOut) {
+                    withAnimation(.default) {
                         isShown.toggle()
                     }
                 }
